@@ -73,14 +73,15 @@
                     const players = playersData[position];
                     let sectionHTML = `<div class="section-title">${position}</div><div class="players-grid">`;
                     
-                    players.forEach(player => {
+                        players.forEach(player => {
                         let clickAction = player.videoLink && player.videoLink !== "رابط_الفيديو_هنا" 
                             ? `openVideo('${player.name}', '${player.videoLink}')` 
                             : `alert('لا يوجد فيديو متاح للاعب: ${player.name}')`;
 
                         sectionHTML += `
                             <div class="player-card" onclick="${clickAction}">
-                                <img src="${player.image}" onerror="this.src='https://via.placeholder.com/65/222/FFF?text=N/A'">
+                                <!-- تم إضافة loading="lazy" هنا -->
+                                <img src="${player.image}" loading="lazy" onerror="this.src='https://via.placeholder.com/65/222/FFF?text=N/A'">
                                 <span>${player.name}</span>
                             </div>
                         `;
