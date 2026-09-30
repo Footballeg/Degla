@@ -27,6 +27,57 @@
         .player-card:hover img { border-color: #f1da07; }
         .player-card span { color: #ccc; font-size: 13px; margin-top: 12px; font-weight: bold; text-align: center; transition: color 0.3s; }
         .player-card:hover span { color: #fff; }
+
+/* ====== تصميمات الـ PlayBook ====== */
+.playbook-section { 
+            background-color: #1a1a1a; 
+            border-radius: 12px; 
+            padding: 25px; 
+            margin-top: 30px; 
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.4); 
+            border: 1px solid #333; 
+            /* السطرين دول مهمين جداً عشان الخلفية متخرجش برا المربع */
+            position: relative; 
+            overflow: hidden; 
+        }
+
+        /* طبقة الخلفية المفرغة */
+        .playbook-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* مسار صورة الخلفية (عدله باسم صورتك) */
+            background-image: url('assets/Coach.png'); 
+            background-size: cover; /* لملء المساحة بالكامل */
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.08; /* درجة الشفافية (8% فقط عشان متزغللش العين) */
+            z-index: 0;
+        }
+
+        /* رفع المحتوى فوق طبقة الخلفية عشان يفضل واضح وقابل للضغط */
+        .playbook-header, .section-title, .playbook-grid {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .playbook-header { color: #f1da07; font-size: 22px; text-align: center; font-weight: bold; margin-bottom: 25px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        .playbook-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        
+        .playbook-card { display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: all 0.3s ease; background-color: #222; padding: 12px; border-radius: 10px; width: 260px; border: 1px solid #444; }
+        .playbook-card:hover { transform: translateY(-5px); border-color: #f1da07; box-shadow: 0 8px 15px rgba(241, 218, 7, 0.15); }
+        .playbook-card img { width: 100%; aspect-ratio: 16/9; border-radius: 6px; object-fit: cover; }
+        .playbook-card span { color: #fff; font-size: 15px; margin-top: 12px; font-weight: bold; text-align: center; }
+
+        /* تعديل الموبايل للـ PlayBook */
+        @media (max-width: 768px) {
+            .playbook-card { width: calc(50% - 10px); padding: 8px; }
+            .playbook-card span { font-size: 12px; }
+        }
+
         /* ====== الكود الذكي للموبايل والشاشات الصغيرة ====== */
         @media (max-width: 768px) {
             .players-grid {
@@ -68,6 +119,51 @@
 
     <div class="container">
         <div class="squad-section" id="squadContainer"></div>
+    </div>
+
+    <!-- قسم الـ PlayBook الجديد -->
+    <div class="playbook-section">
+        <div class="playbook-header">📖 PlayBook - التنظيم التكتيكي</div>
+
+        <!-- القسم الأول: بناء اللعب -->
+        <div class="section-title">نمط الهجوم (Offensive)</div>
+        <div class="playbook-grid">
+            <!-- كارت حالة تكتيكية -->
+            <div class="playbook-card" onclick="openVideo('Pattern 1', 'https://drive.google.com/file/d/1zSgDh2mmXhIkjurZUr4e2af5C1f8I2MH/preview')">
+                <img src="images/playbook/Bulid Up.jpg" loading="lazy" onerror="this.src='https://via.placeholder.com/300x170/222/FFF?text=Build+Up'">
+                <span>Pattern 1</span>
+            </div>
+            
+            <div class="playbook-card" onclick="openVideo('Pattern 2', 'https://drive.google.com/file/d/1i7Y8VNC3OnYJhLEnKBdvKC8WuPu5iFjj/preview')">
+                <img src="images/playbook/Bulid Up.jpg" loading="lazy" onerror="this.src='https://via.placeholder.com/300x170/222/FFF?text=Build+Up'">
+                <span>Pattern 2</span>
+            </div>
+
+            <div class="playbook-card" onclick="openVideo('Pattern 3', 'https://drive.google.com/file/d/1GqQ0_ld67Tfw8Fi6Zx2EqO3HBKMIactk/preview')">
+                <img src="images/playbook/Bulid Up.jpg" loading="lazy" onerror="this.src='https://via.placeholder.com/300x170/222/FFF?text=Build+Up'">
+                <span>Pattern 3</span>
+            </div>
+
+            
+        </div>
+
+        <!-- القسم الثاني: الدفاع -->
+        <div class="section-title" style="margin-top: 30px;">Defensive</div>
+        <div class="playbook-grid">
+            <div class="playbook-card" onclick="openVideo('High press', 'https://drive.google.com/file/d/1mm1V6Er02dsEiQB5D5j9sKEUIn9mGZlZ/preview')">
+                <img src="images/playbook/High Press - Dimond.png" loading="lazy" onerror="this.src='https://via.placeholder.com/300x170/222/FFF?text=Set+Pieces'">
+                <span>High press</span>
+            </div>
+        </div>
+
+        <!-- القسم الثالث: اهداف -->
+        <div class="section-title" style="margin-top: 30px;">Wadi Degla Goal's 25-26</div>
+        <div class="playbook-grid">
+            <div class="playbook-card" onclick="openVideo('Goals', 'https://drive.google.com/file/d/1sKtaHsTVbwaD74mReDaL-umPMrEs9hB0/preview')">
+                <img src="images/playbook/Wadi Degla Goal's 25-26.jpg" loading="lazy" onerror="this.src='https://via.placeholder.com/300x170/222/FFF?text=Set+Pieces'">
+                <span>Wadi Degla Goal's 25-26</span>
+            </div>
+        </div>
     </div>
 
     <div id="videoModal" class="modal">
